@@ -1,2 +1,1 @@
-# curso-js-funcional-e-reativo
-🚀 Curso Javascript - Funcional e Reativo
+# 🚀 Curso Javascript - Funcional e Reativo
