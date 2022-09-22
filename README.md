@@ -10,6 +10,5 @@ Eu sou estudante full-stack-web. Esse repositório e sobre estudos javascript fu
 
 <details>
   <summary><strong>Capitulo 1</strong></summary>
-  - [ ] Básico de funções
-    - Diferença entre function declaration e function expressions
+  Básico de funções - Diferença entre function declaration e function expressions
 </details>
