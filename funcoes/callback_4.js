@@ -8,6 +8,22 @@ const carrinho = [
 
 const getNome = (item) => item.nome
 const qtdMaiorQueZero = (item) => item.qtde > 0
-const nomeItemsValidos = carrinho.filter(qtdMaiorQueZero).map(getNome)
+// const nomeItemsValidos = carrinho.filter(qtdMaiorQueZero).map(getNome)
 
-console.log(nomeItemsValidos)
+// console.log(nomeItemsValidos)
+
+// Meu Filter
+Array.prototype.meuFilter = function (fn) {
+  const novoArray = []
+
+  for (let index = 0; index < this.length; index += 1) {
+    if (fn(this[index], index, this)) {
+      novoArray.push(this[index])
+    }
+  }
+
+  return novoArray
+}
+
+const nomeItemsValidos2 = carrinho.meuFilter(qtdMaiorQueZero).map(getNome)
+console.log(nomeItemsValidos2)
