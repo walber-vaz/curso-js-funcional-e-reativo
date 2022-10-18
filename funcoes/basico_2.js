@@ -3,7 +3,7 @@ function bomDia() {
 }
 
 // Function expression => função anônima
-const bomTarde = function() {
+const bomTarde = function () {
   console.log('Bom tarde!')
 }
 
@@ -18,7 +18,7 @@ executarQualQuerCoisa(bomTarde)
 
 // Com retorna uma função a partir de outra função
 function potencia(base) {
-  return function(exp) {
+  return function (exp) {
     return Math.pow(base, exp)
   }
 }
