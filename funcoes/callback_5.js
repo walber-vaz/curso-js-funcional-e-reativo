@@ -18,3 +18,21 @@ console.log(totais)
 const totalGeral = totais.reduce(somar)
 
 console.log(`Total: ${totalGeral}`)
+
+Array.prototype.meuReduce = function (fn, inicial) {
+  let acc = inicial
+  for (let index = 0; index < this.length; index += 1) {
+    if (!acc && index === 0) {
+      acc = this[index]
+      continue
+    }
+    acc = fn(acc, this[index], index, this)
+  }
+  return acc
+}
+
+const totais2 = carrinho.map(total)
+console.log(totais2)
+const totalGeral2 = totais2.meuReduce(somar)
+
+console.log(`Total: ${totalGeral2}`)
