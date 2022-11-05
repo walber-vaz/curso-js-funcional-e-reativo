@@ -6,8 +6,8 @@ const carrinho = [
   { nome: 'Tesoura', qtde: 1, preco: 19.2, fragil: true },
 ]
 
-const isFragil = item => item.fragil
-const getTotal = item => item.qtde * item.preco
+const isFragil = (item) => item.fragil
+const getTotal = (item) => item.qtde * item.preco
 const getMedia = (acc, el) => {
   const qtdTotal = acc.qtde + 1
   const totalNovo = acc.total + el
@@ -22,7 +22,6 @@ const mediaInicial = { qtde: 0, total: 0, media: 0 }
 const media = carrinho
   .filter(isFragil)
   .map(getTotal)
-  .reduce(getMedia, mediaInicial)
-  .media
+  .reduce(getMedia, mediaInicial).media
 
 console.log(`A média final dos produtos foram: R$${Math.floor(media)}`)
