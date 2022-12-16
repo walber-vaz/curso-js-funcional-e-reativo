@@ -36,8 +36,10 @@ const removeSeVazio = (array) => {
   return array.filter((el) => el.trim())
 }
 
-const removeSeIncluir = (array, padraoTextual) => {
-  return array.filter((el) => !el.includes(padraoTextual))
+const removeSeIncluir = (padraoTextual) => {
+  return (array) => {
+    return array.filter((el) => !el.includes(padraoTextual))
+  }
 }
 
 const removeSeNumeros = (array) => {
