@@ -40,6 +40,13 @@ const removeSeIncluir = (array, padraoTextual) => {
   return array.filter((el) => !el.includes(padraoTextual))
 }
 
+const removeSeNumeros = (array) => {
+  return array.filter((el) => {
+    const num = parseInt(el.trim())
+    return !(num !== 0 && !!num)
+  })
+}
+
 module.exports = {
   lerDir,
   elementosTerminadosCom,
@@ -47,4 +54,5 @@ module.exports = {
   lerArquivos,
   removeSeVazio,
   removeSeIncluir,
+  removeSeNumeros,
 }
