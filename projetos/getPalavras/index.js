@@ -4,7 +4,8 @@ const {
   elementosTerminadosCom,
   lerArquivos,
   removeSeVazio,
-} = require('./funcaoes')
+  removeSeIncluir,
+} = require('./funcoes')
 
 const caminho = path.join(__dirname, '../..', 'dados', 'legendas')
 
@@ -14,4 +15,5 @@ lerDir(caminho)
   .then((conteudos) => conteudos.join('\n'))
   .then((todoConteudo) => todoConteudo.split('\n'))
   .then((linhas) => removeSeVazio(linhas))
+  .then((linhas) => removeSeIncluir(linhas, '-->'))
   .then(console.log)

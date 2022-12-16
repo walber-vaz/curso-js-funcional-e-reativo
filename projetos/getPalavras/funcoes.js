@@ -28,12 +28,16 @@ const lerArquivos = (caminhos) => {
   return Promise.all(caminhos.map((caminho) => lerArquivo(caminho)))
 }
 
-const elementosTerminadosCom = (array, padrao) => {
-  return array.filter((el) => el.endsWith(padrao))
+const elementosTerminadosCom = (array, padraoTextual) => {
+  return array.filter((el) => el.endsWith(padraoTextual))
 }
 
 const removeSeVazio = (array) => {
   return array.filter((el) => el.trim())
+}
+
+const removeSeIncluir = (array, padraoTextual) => {
+  return array.filter((el) => !el.includes(padraoTextual))
 }
 
 module.exports = {
@@ -42,4 +46,5 @@ module.exports = {
   lerArquivo,
   lerArquivos,
   removeSeVazio,
+  removeSeIncluir,
 }
