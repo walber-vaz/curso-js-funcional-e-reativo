@@ -1,8 +1,8 @@
 const path = require('path')
-const { lerDir } = require('./funcaoes')
+const { lerDir, elementosTerminadosCom } = require('./funcaoes')
 
 const caminho = path.join(__dirname, '../..', 'dados', 'legendas')
 
-const arquivos = lerDir(caminho)
-
-console.log(arquivos)
+lerDir(caminho)
+  .then((arquivos) => elementosTerminadosCom(arquivos, '.srt'))
+  .then(console.log)
