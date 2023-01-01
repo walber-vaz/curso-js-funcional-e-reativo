@@ -4,9 +4,11 @@ const fs = require('fs')
 const lerDir = (caminho) => {
   return new Promise((resolve, reject) => {
     try {
-      let arquivos = fs.readdirSync(caminho)
-      arquivos = arquivos.map((arquivo) => path.join(caminho, arquivo))
-      resolve(arquivos)
+      const arquivos = fs.readdirSync(caminho)
+      const arquivosCompletos = arquivos.map((arquivo) => {
+        return path.join(caminho, arquivo)
+      })
+      resolve(arquivosCompletos)
     } catch (error) {
       reject(error)
     }
@@ -52,11 +54,9 @@ const removeSeNumeros = (array) => {
 const removeSimbolos = (simbolos) => {
   return (array) => {
     return array.map((el) => {
-      let novoText = el
-      simbolos.forEach((simbolo) => {
-        novoText = novoText.split(simbolo).join('')
-      })
-      return novoText
+      return simbolos.reduce((acc, simbolo) => {
+        return acc.split(simbolo).join(' ')
+      }, el)
     })
   }
 }
