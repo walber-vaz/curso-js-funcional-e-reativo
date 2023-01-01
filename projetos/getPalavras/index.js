@@ -31,6 +31,18 @@ const simbolos = [
   "'",
 ]
 
+const agruparPalavras = (palavras) => {
+  return palavras.reduce((acc, palavra) => {
+    const p = palavra.toLowerCase()
+    if (acc[p]) {
+      acc[p] += 1
+    } else {
+      acc[p] = 1
+    }
+    return acc
+  }, {})
+}
+
 lerDir(caminho)
   .then((arquivos) => elementosTerminadosCom(arquivos, '.srt'))
   .then((arquivosSRT) => lerArquivos(arquivosSRT))
@@ -43,4 +55,6 @@ lerDir(caminho)
   .then(mesclaConteudos)
   .then(separarTextoPor(' '))
   .then((linhas) => removeSeVazio(linhas))
+  .then((linhas) => removeSeNumeros(linhas))
+  .then(agruparPalavras)
   .then(console.log)
