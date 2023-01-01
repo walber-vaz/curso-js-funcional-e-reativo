@@ -10,6 +10,7 @@ const {
   separarTextoPor,
   mesclaConteudos,
   agruparElementos,
+  ordernarPorAttrNumerico,
 } = require('./funcoes')
 
 const caminho = path.join(__dirname, '../..', 'dados', 'legendas')
@@ -46,4 +47,5 @@ lerDir(caminho)
   .then((linhas) => removeSeVazio(linhas))
   .then((linhas) => removeSeNumeros(linhas))
   .then(agruparElementos)
+  .then(ordernarPorAttrNumerico('qtde', 'desc'))
   .then(console.log)

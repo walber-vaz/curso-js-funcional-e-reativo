@@ -80,6 +80,14 @@ const agruparElementos = (palavras) => {
   )
 }
 
+const ordernarPorAttrNumerico = (attr, ordem = 'asc') => {
+  return (array) => {
+    const asc = (obj1, obj2) => obj1[attr] - obj2[attr]
+    const desc = (obj1, obj2) => obj2[attr] - obj1[attr]
+    return array.sort(ordem === 'asc' ? asc : desc)
+  }
+}
+
 module.exports = {
   lerDir,
   elementosTerminadosCom,
@@ -92,4 +100,5 @@ module.exports = {
   separarTextoPor,
   mesclaConteudos,
   agruparElementos,
+  ordernarPorAttrNumerico,
 }
