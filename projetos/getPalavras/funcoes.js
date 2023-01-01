@@ -61,6 +61,14 @@ const removeSimbolos = (simbolos) => {
   }
 }
 
+const separarTextoPor = (simbolo) => {
+  return (texto) => {
+    return texto.split(simbolo)
+  }
+}
+
+const mesclaConteudos = (array) => array.join(' ')
+
 module.exports = {
   lerDir,
   elementosTerminadosCom,
@@ -70,4 +78,6 @@ module.exports = {
   removeSeIncluir,
   removeSeNumeros,
   removeSimbolos,
+  separarTextoPor,
+  mesclaConteudos,
 }
