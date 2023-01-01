@@ -49,6 +49,18 @@ const removeSeNumeros = (array) => {
   })
 }
 
+const removeSimbolos = (simbolos) => {
+  return (array) => {
+    return array.map((el) => {
+      let novoText = el
+      simbolos.forEach((simbolo) => {
+        novoText = novoText.split(simbolo).join('')
+      })
+      return novoText
+    })
+  }
+}
+
 module.exports = {
   lerDir,
   elementosTerminadosCom,
@@ -57,4 +69,5 @@ module.exports = {
   removeSeVazio,
   removeSeIncluir,
   removeSeNumeros,
+  removeSimbolos,
 }
