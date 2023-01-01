@@ -69,6 +69,17 @@ const separarTextoPor = (simbolo) => {
 
 const mesclaConteudos = (array) => array.join(' ')
 
+const agruparElementos = (palavras) => {
+  return Object.values(
+    palavras.reduce((acc, palavra) => {
+      const el = palavra.toLowerCase()
+      const qtde = acc[el] ? acc[el].qtde + 1 : 1
+      acc[el] = { elemento: el, qtde }
+      return acc
+    }, {})
+  )
+}
+
 module.exports = {
   lerDir,
   elementosTerminadosCom,
@@ -80,4 +91,5 @@ module.exports = {
   removeSimbolos,
   separarTextoPor,
   mesclaConteudos,
+  agruparElementos,
 }

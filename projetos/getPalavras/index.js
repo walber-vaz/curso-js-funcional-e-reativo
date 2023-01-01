@@ -9,6 +9,7 @@ const {
   removeSimbolos,
   separarTextoPor,
   mesclaConteudos,
+  agruparElementos,
 } = require('./funcoes')
 
 const caminho = path.join(__dirname, '../..', 'dados', 'legendas')
@@ -31,18 +32,6 @@ const simbolos = [
   "'",
 ]
 
-const agruparPalavras = (palavras) => {
-  return palavras.reduce((acc, palavra) => {
-    const p = palavra.toLowerCase()
-    if (acc[p]) {
-      acc[p] += 1
-    } else {
-      acc[p] = 1
-    }
-    return acc
-  }, {})
-}
-
 lerDir(caminho)
   .then((arquivos) => elementosTerminadosCom(arquivos, '.srt'))
   .then((arquivosSRT) => lerArquivos(arquivosSRT))
@@ -56,5 +45,5 @@ lerDir(caminho)
   .then(separarTextoPor(' '))
   .then((linhas) => removeSeVazio(linhas))
   .then((linhas) => removeSeNumeros(linhas))
-  .then(agruparPalavras)
+  .then(agruparElementos)
   .then(console.log)
