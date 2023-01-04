@@ -18,6 +18,7 @@ const lento = (texto) => {
   return texto.split('').join(' ')
 }
 
-const resultado = composicao(falar, enfatizar, lento)('PARA')
+const exagerado = composicao(falar, enfatizar, lento)
 
+const resultado = exagerado('w2k')
 console.log(resultado)
