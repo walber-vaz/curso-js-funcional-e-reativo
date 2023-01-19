@@ -1,8 +1,0 @@
-{
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-  },
-  "prettier.configPath": "./.prettierrc",
-  "files.eol": "\n",
-  "editor.formatOnSave": true
-}
